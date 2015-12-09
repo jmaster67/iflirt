@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
 					  :storage => :s3,
 					  :style => { :medium => "370x370", :thumb => "100x100" }
 
-    # validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
+    validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
     # default_scope { order('id DESC') }
 
@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
 	def self.create_user_from_facebook(auth)
 		create(
 
-		# avatar: process_uri(auth['info']['image'] + "?width=9999"),
+		avatar: process_uri(auth['info']['image'] + "?width=9999"),
 		email: auth['info']['email'],
 		provider: auth['provider'],
 		uid: auth['uid'],
@@ -27,4 +27,14 @@ class User < ActiveRecord::Base
 
 		)
 	end
+
+	private
+
+  	def self.process_uri(uri)
+     image_url = URI.parse(uri)
+     image_url.scheme = 'https'
+     image_url.to_s
+  	end
 end
+
+
