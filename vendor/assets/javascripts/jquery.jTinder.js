@@ -8,8 +8,7 @@
  * https://github.com/do-web/jTinder/blob/master/LICENSE
  */
 
- 
-;(function ($, window, document, undefined) {
+ ;(function ($, window, document, undefined) {
 	var pluginName = "jTinder",
 		defaults = {
 			onDislike: null,
@@ -66,49 +65,49 @@
 
 			$(".spinner").show();
 			
-		    var li_count = $( "#tinderslide > ul > li" ).length;
-			//Custom -> Add more elements if reaching the end!
-		    if( li_count < 2 ) {
-        	    	
-		    		if( li_count == 0 ) {
+    var li_count = $( "#tinderslide > ul > li" ).length;
+    //Custom -> Add more elements if reaching the end!
+		if( li_count < 2 ) {
 
-		    			    // make an ajax call passing along our last user id
-					        $.ajax({
-					            // make a get request to the server
-					            type: "GET",
-					            // get the url from the href attribute of our link
-					            url: "/users",
-					            // the response will be a script
-					            dataType: "script",
+		if( li_count == 0 ) {
+
+    // make an ajax call passing along our last user id
+	 $.ajax({
+		// make a get request to the server
+		type: "GET",
+		 // get the url from the href attribute of our link
+	    url: "/users",
+		// the response will be a script
+		 dataType: "script",
 					 
-					            // upon success 
-					            success: function (e) {
-					            	$(".spinner").hide(); // Do something on success!
-					            }
+		 // upon success 
+		 success: function (e) {
+				$(".spinner").hide(); // Do something on success!
+			      }
 
-					        });
+        });
 		    		
-		    		} else {
+		  } else {
 
-        	    	var last_id = $( "#tinderslide > ul > li" ).first().attr("id"); //panes.eq(current_pane).attr("id");
+        	   var last_id = $( "#tinderslide > ul > li" ).first().attr("id"); //panes.eq(current_pane).attr("id");
 						
 							// make an ajax call passing along our last user id
-					        $.ajax({
+		        $.ajax({
 					 
-					            // make a get request to the server
-					            type: "GET",
-					            // get the url from the href attribute of our link
-					            url: "/users",
+					         // make a get request to the server
+				 type: "GET",
+					         // get the url from the href attribute of our link
+			     url: "/users",
 					            // send the last id to our rails app
-					            data: {
-					                id: last_id
-					            },
-					            // the response will be a script
-					            dataType: "script",
+				 data: {
+				 id: last_id
+			        },
+					          // the response will be a script
+				 dataType: "script",
 					 
-					            // upon success 
-					            success: function (e) {
-					            	$(".spinner").hide(); // Do somethig on success!
+					          // upon success 
+					 success: function (e) {
+					         $(".spinner").hide(); // Do somethig on success!
 					            }
 
 					        });
@@ -241,9 +240,3 @@
 	};
 
 })(jQuery, window, document);
-
-
-
-
-
-

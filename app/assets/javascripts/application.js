@@ -19,4 +19,6 @@
 //= require jasny-bootstrap
 //= require supersized.3.2.7
 //= jquery.transform2d.js
+//= require tinysort
+//= require jquery.tinysort
 //= require_tree .
