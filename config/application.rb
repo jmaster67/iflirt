@@ -13,8 +13,8 @@ module Iflirt
       :storage => :s3,
       :s3_credentials => { 
          :bucket => "iflirt",
-         :access_key_id => "AKIAISX6PZOTS4RZCSZA",
-         :secret_access_key => "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"
+         :access_key_id => "",
+         :secret_access_key => ""
       }
     }
     
