@@ -10,16 +10,8 @@
 			</tr>
 		</thead>
 	<tbody>
-		<tr>
-			<th scope="row"><%= image_tag "batwoman.jpg", size: "30x30" %></th>
-			<td>Batwoman</td>
-			<td>12-7-2015</td>
-			<td class="text-right">
-					<a href="" data-toggle="tooltip" data-placement="top" title="Get Email"><i class="fa fa fa-envelope"></i></a>
-					<a href="" data-toggle="tooltip" data-placement="top" title="Unmatch"><i class="fa fa-times"></i></a>
-			</td>
-		</tr>
-	</tbody>
+			<%= render partial: "match", collection: @matches %>
+		</tbody>
     </table>
 </div>
 
