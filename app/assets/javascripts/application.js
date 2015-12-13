@@ -20,5 +20,7 @@
 //= require supersized.3.2.7
 //= jquery.transform2d.js
 //= require tinysort
+//= require sweetalert.min
 //= require jquery.tinysort
+//= require data-confirm-modal
 //= require_tree .

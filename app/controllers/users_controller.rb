@@ -3,9 +3,11 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:edit, :profile, :update, :destroy, :get_email, :matches]
   def index
   	if params[:id]
-	      @users = User.where('id < ?', params[:id]).limit(2)
+	      # @users = User.where('id < ?', params[:id]).limit(2)
+        @users = User.gender(current_user).not_me(current_user).where('id < ?', params[:id]).limit(11) - current_user.matches(current_user)
 	    else
-	      @users = User.all.limit(2)
+	      # @users = User.all.limit(2)
+        @users = User.gender(current_user).not_me(current_user).limit(11) - current_user.matches(current_user)
 	end
 
 	    respond_to do |format|
@@ -43,7 +45,7 @@ class UsersController < ApplicationController
   end
 
   def matches
-  	
+  	authorize! :update, @user
     @matches = current_user.friendships.where(state: "ACTIVE").map(&:friend) + current_user.inverse_friendships.where(state: "ACTIVE").map(&:user)
   end
 

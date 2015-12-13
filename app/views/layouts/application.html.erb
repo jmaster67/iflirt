@@ -26,7 +26,8 @@
 			<li class="<%= if params[:action] == "edit" then "active" end %> nav-btn">
 				<%= link_to edit_user_path(current_user) do %><i class="fa fa-cog"></i> Settings <% end %>
 			</li>
-			<li><%= link_to '/sign_out', method: :delete do %><i class="fa fa-cog"></i> Log Out <% end %></li>
+
+			<li class="nav-btn"><%= link_to '/sign_out', method: :delete do %><i class="fa fa-cog"></i> Log Out <% end %></li>
   		</ul>
 	
 	</nav>
