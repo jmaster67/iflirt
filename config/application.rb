@@ -12,7 +12,7 @@ module Iflirt
     config.paperclip_defaults = {
       :storage => :s3,
       :s3_credentials => { 
-         :bucket => "iflirt",
+         :bucket => "",
          :access_key_id => "",
          :secret_access_key => ""
       }
